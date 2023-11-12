@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gruppeside</title>
+		<link rel="stylesheet" href="stil.css">
+		<meta charset="utf-8">
+		<script src="indexScript.js"></script>
+	</head>
+
+	<!-- <body onload="fetchList()"> -->
+	<body>
+		<div id="loginBox">
+			<p>You are not logged in</p>
+			<label for="inUsername">Username:</label><br>
+			<input type="text" id="inUsername" name="inUsername"><br><br>
+			<label for="inPassword">Password:</label><br>
+			<input type="text" id="inPassword" name="inPassword"><br>
+			<button onclick="logIn()" type="button">Log in</button>
+		</div>
+		<h1>Diktdatabase</h1>
+		<div id="reply">
+			<table>
+				<tr>
+					<th>Forfatter</th>
+					<th>Dikttekst</th>
+				</tr>
+				<tr>
+					<td>alf.berg@email.com</td>
+					<td>Det var en gang for lenge le...</td>
+					<td>
+						<button onclick="viewPoem()" type="button">view</button>
+						<button onclick="editPoem()" type="button">edit</button>
+						<button onclick="deletePoem()" type="button">delete</button>
+					</td>
+				</tr>
+				<tr>
+					<td>carl.dørgen@fmail.com</td>
+					<td>Mukashi mukashi, to aru roujin no fuufu wa...</td>
+					<td>
+						<button onclick="viewPoem()" type="button">view</button>
+						<button onclick="editPoem()" type="button">edit</button>
+						<button onclick="deletePoem()" type="button">delete</button>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>
+						<button onclick="viewPoem()" type="button">view</button>
+						<button onclick="editPoem()" type="button">edit</button>
+						<button onclick="deletePoem()" type="button">delete</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

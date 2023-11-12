@@ -1,0 +1,925 @@
+
+
+9-23 21:24:49 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: (null)
+
+9-23 21:26:13 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-23 21:26:21 New connection.
+GET /index.asis HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.asis
+File extension: asis
+Mimetype: asis
+
+9-23 21:37:18 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /index.html
+File extension: html
+Mimetype: text/html
+
+9-23 21:37:49 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-23 21:40:1 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /index.html
+File extension: html
+Mimetype: text/html
+
+9-23 21:48:58 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-23 21:49:5 New connection.
+GET /s HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/s
+File extension: (null)
+
+9-23 21:53:47 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-23 21:53:55 New connection.
+GET /hallo.asis HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/hallo.asis
+File extension: asis
+Mimetype: asis
+munmap_chunk(): invalid pointer
+
+9-23 22:0:10 New connection.
+GET / HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-23 22:0:10 New connection.
+GET /stil.css HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /var/www/stil.css
+File extension: css
+Mimetype: text/css
+
+9-23 22:0:10 New connection.
+GET /gruppebilde.jpg HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /var/www/gruppebilde.jpg
+File extension: jpg
+Mimetype: image/jpeg
+
+9-23 22:0:10 New connection.
+GET /favicon.ico HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /var/www/favicon.ico
+File extension: ico
+Mimetype: image/vnd.microsoft.icon
+
+9-23 22:0:13 New connection.
+GET /gruppedata.xml HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /var/www/gruppedata.xml
+File extension: xml
+Mimetype: application/xml
+
+9-23 22:0:13 New connection.
+
+9-23 22:14:30 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-23 22:18:2 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-23 22:23:32 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-23 22:28:4 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+9-24 8:36:12 New connection.
+GET /s HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/s
+File extension: (null)
+Mimetype: (null)
+
+9-24 8:37:52 New connection.
+GET /s HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/s
+File extension: (null)
+Mimetype: (null)
+
+9-24 8:39:16 New connection.
+GET /s HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/s
+File extension: (null)
+Mimetype: (null)
+
+9-24 8:42:14 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /index.html
+File extension: html
+Mimetype: text/html
+
+9-24 8:42:44 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /index.html
+File extension: html
+Mimetype: text/html
+
+10-27 09:02:36 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /index.html
+File extension: html
+Mimetype: text/html
+
+10-27 09:06:25 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: curl/7.81.0
+Accept: */*
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+10-3 9:37:20 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 9:37:24 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 9:37:25 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 9:37:25 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 9:37:25 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:2:10 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:2:10 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:2:10 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:2:10 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:2:10 New connection.
+Read to buffer
+10-3 10:7:37 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:7:37 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:7:37 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:7:37 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:7:51 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:7:51 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:7:51 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:8:22 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:8:22 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:8:22 New connection.
+Read to buffer
+10-3 10:19:55 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:19:55 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:19:55 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:19:55 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:20:33 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:20:33 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:20:33 New connection.
+Read to buffer
+10-3 10:26:27 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:28 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:28 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:28 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:28 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:28 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:28 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:44 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:44 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:45 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:45 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:45 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-3 10:26:45 New connection.
+Read to buffer
+10-10 10:37:55 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:37:55 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:37:55 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:37:55 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:38:13 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:38:13 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:38:14 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:38:14 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:38:14 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:38:14 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 10:38:14 New connection.
+Read to buffer
+10-10 11:8:12 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 11:8:13 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 11:8:13 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 11:8:13 New connection.
+Read to buffer
+10-10 11:9:53 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 11:9:54 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 11:9:54 New connection.
+Read to buffer
+Split header and body
+Read headers
+Got request
+Got request method
+Got filename
+Got query string
+Reached the point of reply
+10-10 11:9:54 New connection.
+Read to buffer
+
+202311-10 13:25:02 New connection.
+GET /indexjs.html HTTP/1.1
+Host: localhost
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /indexjs.html
+File extension: html
+Mimetype: text/html
+
+202311-10 13:25:02 New connection.
+GET /stil.css HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://localhost/indexjs.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /stil.css
+File extension: css
+Mimetype: text/css
+
+202311-10 13:25:02 New connection.
+GET /indexScript.js HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost/indexjs.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /indexScript.js
+File extension: js
+Mimetype: text/javascript
+
+202311-10 13:25:02 New connection.
+
+202311-10 13:38:48 New connection.
+GET /indexjs.html HTTP/1.1
+Host: localhost
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /indexjs.html
+File extension: html
+Mimetype: text/html
+
+202311-10 13:38:49 New connection.
+GET /stil.css HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://localhost/indexjs.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /stil.css
+File extension: css
+Mimetype: text/css
+
+202311-10 13:38:49 New connection.
+GET /indexScript.js HTTP/1.1
+Host: localhost
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost/indexjs.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,en-NO;q=0.8,en;q=0.7,no;q=0.6,nn;q=0.5,en-US;q=0.4,ja;q=0.3
+
+Adjusted filename: /indexScript.js
+File extension: js
+Mimetype: text/javascript
+
+202311-10 13:38:49 New connection.

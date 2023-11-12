@@ -1,0 +1,12 @@
+{
+  "name": "docker-container1",
+  "version": "1.0.0",
+  "description": "Docker Container 1 Example",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {},
+  "author": "Your Name",
+  "license": "MIT"
+}

@@ -1,0 +1,36 @@
+version: '3'
+services:
+    konteiner1:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: konteiner1     
+    konteiner2:
+        build:
+            context: ./konteiner-2
+            dockerfile: Dockerfile
+        container_name: konteiner2
+
+        depends_on:
+          - konteiner1
+        ports:
+          - "8180:80"
+        networks:
+          - mynetwork
+
+    konteiner3:
+        build:
+            context: ./konteiner-3
+            dockerfile: Dockerfile
+        container_name: konteiner3
+        depends_on:
+          - konteiner1
+        ports:
+          - "8080:80"
+        networks:
+          - mynetwork
+
+
+networks:
+  mynetwork:
+

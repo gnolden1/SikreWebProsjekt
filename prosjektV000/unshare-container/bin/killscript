@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pid=$(ps aux | grep a.out | grep -v grep | tr -s ' ' | cut -d ' ' -f 2)
+kill -9 $pid

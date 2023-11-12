@@ -1,0 +1,18 @@
+https://docs.docker.com/engine/install/ubuntu/
+https://askubuntu.com/questions/1379425/system-has-not-been-booted-with-systemd-as-init-system-pid-1-cant-operate
+https://hub.docker.com/_/httpd
+
+Sikkerhets- og robusthets-krav
+  root-bruker i container er upriviligert i vertsystemet
+    https://github.com/docker/labs/blob/master/security/userns/README.md
+  Prosessorbruken til containeren skal begrenses
+    https://github.com/docker/labs/blob/master/security/cgroups/README.md
+  Sikkerheten skal økes
+    https://github.com/docker/labs/blob/master/security/capabilities/README.md
+
+Ikke-funksjonelle krav
+  To kontainere med hver sin Dockerfile
+  docker-compose for å starte og stoppe begge kontainerene
+
+Funksjonskrav
+  Konteiner 3: cgi (shell), html-schema
