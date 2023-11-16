@@ -3,14 +3,13 @@
 // TODO Grey out buttons if user is not logged in
 // TODO If user is logged in, keep track of email, grey out buttons for poems user does not own
 
-// TODO Hyperlink to group home page
-// TODO css file style
-
-// TODO Service Workers
-
 function pageInit() {
 	listPoems();
+	registerServiceWorker();
 	// TODO automatically log user in if session in cookie exists?
+	// If session id cookie does not exist, delete email cookie
+	// If session id exists but email cookie does not, log user out
+	// If both exist, then automatically log user in
 }
 
 function logIn() {
@@ -25,12 +24,14 @@ function logIn() {
 		body: xmlbody,
 	});
 	// TODO Give response based on whether successful or not
-	// TODO Change the login box if successful
+	// TODO if successful then also add email cookie
 	document.getElementById("loginBox").innerHTML = "<p>You are logged in</p><br><button onclick=\"logOut()\" type=\"button\">log out</button>";
 }
 
 function logOut() {
 	fetch("/diktdb/logut", {method: "DELETE"});
+	document.cookie = "ssid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	//document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 	let text = "<p>You are not logged in</p>" +
 		"<label for=\"inUsername\">Username:</label><br>" +
 		"<input type=\"text\" id=\"inUsername\" name=\"inUsername\">" +
@@ -74,7 +75,7 @@ function editPoem(id) {
 		.then(xmlString => new window.DOMParser().parseFromString(xmlString, "text/xml"))
 		.then(xmlDoc => {
 			let poem = xmlDoc.getElementsByTagName("dikt")[0].childNodes[0].nodeValue;
-			document.getElementById("reply").innerHTML = "<textarea id=\"inEditedPoem\" rows=\"10\" cols=\"50\">" + poem + "</textarea><br><button onclick=\"submitEditedPoem(" + id + ")\" type=\"button\">submit</button>";
+			document.getElementById("reply").innerHTML = "<h2>Editing poem</h2><textarea id=\"inEditedPoem\" rows=\"10\" cols=\"50\">" + poem + "</textarea><br><button onclick=\"submitEditedPoem(" + id + ")\" type=\"button\">submit</button>";
 		});
 }
 
@@ -101,10 +102,7 @@ function deletePoem(id) {
 }
 
 function confirmPoemDeletion(id) {
-	fetch("/diktdb/dikt/" + id, {  // TODO Change to correct fetch
-		method: "DELETE",
-		body: xmlbody,
-	});
+	fetch("/diktdb/dikt/" + id, {method: "DELETE"});  // TODO change to correct fetch
 	// TODO Give response based on whether successful or not
 }
 
@@ -113,10 +111,7 @@ function deleteAllPoems() {
 }
 
 function confirmDeleteAllPoems() {
-	fetch("/diktdb/dikt/", {  // TODO Change to correct fetch
-		method: "DELETE",
-		body: xmlbody,
-	});
+	fetch("/diktdb/dikt/", {method: "DELETE"});  // TODO change to correct fetch
 	// TODO Give response based on whether successful or not
 }
 
@@ -146,3 +141,13 @@ function listPoems() {
 			document.getElementById("reply").innerHTML = text;
 		});
 }
+
+const registerServiceWorker = async () => {
+	if ("serviceWorker" in navigator) {
+		try {
+			navigator.serviceWorker.register("/serviceWorker.js");
+		} catch (error) {
+			console.error("Registration failed with" + error);
+		}
+	}
+};
