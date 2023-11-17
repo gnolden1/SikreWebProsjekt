@@ -1,11 +1,13 @@
 version: '3'
 services:
     konteiner1:
+      image: konteiner1
       build:
         context: .
         dockerfile: Dockerfile
       container_name: konteiner1     
     konteiner2:
+        image: konteiner2
         build:
             context: ./konteiner-2
             dockerfile: Dockerfile
@@ -19,6 +21,7 @@ services:
           - mynetwork
 
     konteiner3:
+        image: konteiner3
         build:
             context: ./konteiner-3
             dockerfile: Dockerfile
@@ -29,7 +32,6 @@ services:
           - "8080:80"
         networks:
           - mynetwork
-
 
 networks:
   mynetwork:
