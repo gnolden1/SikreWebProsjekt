@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
     konteiner1:
       image: konteiner1
@@ -6,12 +6,17 @@ services:
         context: .
         dockerfile: Dockerfile
       container_name: konteiner1     
+      cap_drop:
+       - ALL
+
     konteiner2:
         image: konteiner2
         build:
             context: ./konteiner-2
             dockerfile: Dockerfile
         container_name: konteiner2
+        cap_add:
+         - ALL 
 
         depends_on:
           - konteiner1
@@ -28,6 +33,9 @@ services:
         container_name: konteiner3
         depends_on:
           - konteiner1
+        cap_add:
+         - ALL
+
         ports:
           - "8080:80"
         networks:
