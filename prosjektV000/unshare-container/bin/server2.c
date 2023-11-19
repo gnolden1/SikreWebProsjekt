@@ -126,7 +126,7 @@ int main () {
 			time_t t = time(NULL);
 			struct tm tm = *localtime(&t);
 			// TODO month + 1, hours + 2 (wsl time?), time always two digits
-			fprintf(stderr, "\n%04d%02d-%02d %02d:%02d:%02d New connection.\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour + 2, tm.tm_min, tm.tm_sec);
+			fprintf(stderr, "\n%04d-%02d-%02d %02d:%02d:%02d New connection.\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour + 2, tm.tm_min, tm.tm_sec);
       	
 			// Setter socket som stdout
 			dup2(ny_sd, 1);
@@ -295,7 +295,7 @@ int main () {
 			char *contentType = getHeaderField(requestHeader, "Content-Type");
 
 			// Åpner og skriver fil, evt feilmeldinger
-			if (fileExt == NULL) {
+			/*if (fileExt == NULL) {
 				printf("HTTP/1.1 200 OK\r\n\n");
 
 				// TODO set all relevant environment variables
@@ -325,7 +325,7 @@ int main () {
 				execl("/var/www/script.sh", "/var/www/script.sh", NULL);
 				//shutdown(ny_sd, SHUT_RDWR);
       				//exit(0);
-			}
+			}*/
 
 			FILE *file = fopen(adjustedFileName, "r");
 			if (file == NULL)
@@ -338,7 +338,8 @@ int main () {
 			else {
 				struct stat st;
 				stat(adjustedFileName, &st);
-				printf("HTTP/1.1 200 OK\r\nContent-Type: %s\r\n\n", mimeType);
+				if (strcmp(mimeType, "asis") != 0)
+					printf("HTTP/1.1 200 OK\r\nContent-Type: %s\r\n\n", mimeType);
 				printFile(file, st.st_size);
 			}
 
