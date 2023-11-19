@@ -2,7 +2,7 @@ FROM konteiner1
 
 EXPOSE 8180
 
-COPY ./cgi.sh /usr/local/apache2/cgi-bin/cgi.sh
+COPY ./cgi_2.sh /usr/local/apache2/cgi-bin/cgi.sh
 RUN chmod +x /usr/local/apache2/cgi-bin/cgi.sh
 
 WORKDIR /db

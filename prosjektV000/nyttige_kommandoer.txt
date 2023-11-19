@@ -1,8 +1,8 @@
 #sudo docker ps
 #sudo docker exec -it
-#
-#
-#
+#docker compose build
+#docker compose up -d
+#docker compose down
 #
 #
 #

@@ -1,15 +1,30 @@
-// TODO Check if user has sid cookie at page load, automatically log in
-// TODO Proper login box behaviour
-// TODO Grey out buttons if user is not logged in
-// TODO If user is logged in, keep track of email, grey out buttons for poems user does not own
+var loggedIn = false;
 
 function pageInit() {
+	if (isLoggedIn()) {
+		document.getElementById("loginBox").innerHTML = "<p>You are logged in</p><br><button onclick=\"logOut()\" type=\"button\">log out</button>";
+		loggedIn = true;
+	}
 	listPoems();
-	registerServiceWorker();
-	// TODO automatically log user in if session in cookie exists?
-	// If session id cookie does not exist, delete email cookie
-	// If session id exists but email cookie does not, log user out
-	// If both exist, then automatically log user in
+	//registerServiceWorker();
+}
+
+function getSessionID() {
+	let cookieField = "ssid=";
+	let allCookies = decodeURIComponent(document.cookie).split(';');
+	for (i = 0; i < allCookies.length; i++) {
+		let cookie = allCookies[i];
+		while (cookie.charAt(0) == ' ')
+			cookie = cookie.substring(1);
+		if (cookie.indexOf(cookieField) == 0)
+			return cookie.substring(cookieField.length, cookie.length);
+	}
+	
+	return "";
+}
+
+function isLoggedIn() {
+	return (getSessionID() != "");
 }
 
 function logIn() {
@@ -26,12 +41,13 @@ function logIn() {
 	// TODO Give response based on whether successful or not
 	// TODO if successful then also add email cookie
 	document.getElementById("loginBox").innerHTML = "<p>You are logged in</p><br><button onclick=\"logOut()\" type=\"button\">log out</button>";
+	loggedIn = true;
+	listPoems();
 }
 
 function logOut() {
 	fetch("/diktdb/logut", {method: "DELETE"});
 	document.cookie = "ssid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-	//document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 	let text = "<p>You are not logged in</p>" +
 		"<label for=\"inUsername\">Username:</label><br>" +
 		"<input type=\"text\" id=\"inUsername\" name=\"inUsername\">" +
@@ -40,6 +56,8 @@ function logOut() {
 		"<input type=\"text\" id=\"inPassword\" name=\"inPassword\"><br>" +
 		"<button onclick=\"logIn()\" type=\"button\">Log in</button>";
 	document.getElementById("loginBox").innerHTML = text;
+	loggedIn = false;
+	listPoems();
 }
 
 function addPoem() {
@@ -132,12 +150,11 @@ function listPoems() {
 				text += "<td>" + emails[i].childNodes[0].nodeValue + "</td>";
 				text += "<td>";
 				text += "<button onclick=\"viewPoem(" + ids[i].childNodes[0].nodeValue + ")\" type=\"button\">view</button>";
-				text += "<button onclick=\"editPoem(" + ids[i].childNodes[0].nodeValue + ")\" type=\"button\">edit</button>";
-				text += "<button onclick=\"deletePoem(" + ids[i].childNodes[0].nodeValue + ")\" type=\"button\">delete</button>";
+				text += "<button onclick=\"editPoem(" + ids[i].childNodes[0].nodeValue + ")\" type=\"button\" " + (loggedIn ? "" : "disabled") + ">edit</button>";
+				text += "<button onclick=\"deletePoem(" + ids[i].childNodes[0].nodeValue + ")\" type=\"button\" " + (loggedIn ? "" : "disabled") + ">delete</button>";
 				text += "</td>";
 			}
 			text += "</table>";
-			text += "<p>" + document.cookie + "</p>";
 			document.getElementById("reply").innerHTML = text;
 		});
 }
