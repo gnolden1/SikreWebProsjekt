@@ -1,18 +1,20 @@
-version: '3'
+version: '3.8'
 services:
-    konteiner1:
+  konteiner1:
       image: konteiner1
       build:
         context: .
         dockerfile: Dockerfile
-      container_name: konteiner1     
-    konteiner2:
+      deploy:
+        mode: build
+
+
+  konteiner2:
         image: konteiner2
         build:
             context: ./konteiner-2
             dockerfile: Dockerfile
         container_name: konteiner2
-
         depends_on:
           - konteiner1
         ports:
@@ -20,7 +22,26 @@ services:
         networks:
           - mynetwork
 
-    konteiner3:
+        deploy:
+          resources:
+            limits:
+              cpus: '1'
+              memory: 1G
+              pids: 200
+            reservations:
+              cpus: '0.5'
+              memory: 200M
+        cap_drop:
+          - ALL
+        cap_add:
+
+          - SETGID
+          - SETUID 
+          - CHOWN
+
+
+
+  konteiner3:
         image: konteiner3
         build:
             context: ./konteiner-3
@@ -32,6 +53,27 @@ services:
           - "8080:80"
         networks:
           - mynetwork
+
+
+        deploy:
+          resources:
+            limits:
+              cpus: '0.50'
+              memory: 1G
+              pids: 200
+            reservations:
+              cpus: '0.5'
+              memory: 200M          
+
+
+        cap_drop:
+          - ALL
+        cap_add:
+
+          - CHOWN
+          - SETGID
+          - SETUID
+
 
 
 networks:

@@ -11,12 +11,15 @@ WORKDIR /db
 RUN apk add --no-cache sqlite
 RUN sqlite3 database.db
 
-# apk add jq
+#installerer jq for å få sh scriptet til å funke:
+#Installs:
+RUN apk add --no-cache sqlite
+RUN apk add --no-cache jq
 # apk add uuidgen
+
 # chown -R "www-data":"www-data" /db/
 
 COPY skjema.sql /db/
-
 
 RUN sqlite3 database.db < skjema.sql
 
