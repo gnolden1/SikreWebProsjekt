@@ -17,3 +17,4 @@ sudo apt-get update
 #install docker-compose
 sudo apt-get install docker-compose-plugin	
 sudo apt-get update
+sudo cp daemon.json /etc/docker/daemon.json

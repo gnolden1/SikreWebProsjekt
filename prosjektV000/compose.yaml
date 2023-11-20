@@ -1,81 +1,76 @@
 version: '3.8'
 services:
   konteiner1:
-      image: konteiner1
-      build:
-        context: .
-        dockerfile: Dockerfile
-      deploy:
-        mode: build
-
+    image: konteiner1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      mode: build
 
   konteiner2:
-        image: konteiner2
-        build:
-            context: ./konteiner-2
-            dockerfile: Dockerfile
-        container_name: konteiner2
-        depends_on:
-          - konteiner1
-        ports:
-          - "8180:80"
-        networks:
-          - mynetwork
+    image: konteiner2
+    build:
+      context: ./konteiner-2
+      dockerfile: Dockerfile
+    container_name: konteiner2
+    depends_on:
+      - konteiner1
+    ports:
+      - "8180:80"
+    networks:
+      - mynetwork
+    userns_mode: "default"
 
-        deploy:
-          resources:
-            limits:
-              cpus: '1'
-              memory: 1G
-              pids: 200
-            reservations:
-              cpus: '0.5'
-              memory: 200M
-        cap_drop:
-          - ALL
-        cap_add:
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETGID
+      - SETUID 
+      - CHOWN
 
-          - SETGID
-          - SETUID 
-          - CHOWN
-
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+          pids: 200
+        reservations:
+          cpus: '0.5'
+          memory: 200M
 
 
   konteiner3:
-        image: konteiner3
-        build:
-            context: ./konteiner-3
-            dockerfile: Dockerfile
-        container_name: konteiner3
-        depends_on:
-          - konteiner1
-        ports:
-          - "8080:80"
-        networks:
-          - mynetwork
+    image: konteiner3
+    build:
+      context: ./konteiner-3
+      dockerfile: Dockerfile
+    container_name: konteiner3
+    depends_on:
+      - konteiner1
+    ports:
+      - "8080:80"
+    networks:
+      - mynetwork
 
+    cap_drop:
+        - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+    userns_mode: "default"
 
-        deploy:
-          resources:
-            limits:
-              cpus: '0.50'
-              memory: 1G
-              pids: 200
-            reservations:
-              cpus: '0.5'
-              memory: 200M          
-
-
-        cap_drop:
-          - ALL
-        cap_add:
-
-          - CHOWN
-          - SETGID
-          - SETUID
-
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 1G
+          pids: 200
+        reservations:
+          cpus: '0.5'
+          memory: 200M
 
 
 networks:
   mynetwork:
-
