@@ -3,7 +3,7 @@ FROM konteiner1
 EXPOSE 8180
 
 
-COPY ./mp3cgiV004.sh /usr/local/apache2/cgi-bin/cgi.sh
+COPY ./mp3cgiV005.sh /usr/local/apache2/cgi-bin/cgi.sh
 RUN chmod +x /usr/local/apache2/cgi-bin/cgi.sh
 
 WORKDIR /db

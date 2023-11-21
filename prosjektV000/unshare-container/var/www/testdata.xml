@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiktDB>
-	<Dikt>
-		<diktId>1</diktId>
-		<dikt>Det var en gang en sjuk jævel som likte å gjøre sjuke ting</dikt>
-		<epost>albert.berntsen@email.com</epost>
-	</Dikt>
-	<Dikt>
-		<diktId>2</diktId>
-		<dikt>For lenge, lenge siden i et land langt langt borte var shrek</dikt>
-		<epost>christian.dahl@fmail.com</epost>
-	</Dikt>
-	<Dikt>
-		<diktId>3</diktId>
-		<dikt>Mogu mogu yummy magic cunny yamu yamu ari no manma mogu mogu</dikt>
-		<epost>okayu.nekomata@holo.jp</epost>
-	</Dikt>
+        <Dikt>
+                <diktID>1</diktID>
+                <dikt>Det var en gang en sjuk jævel som likte å gjøre sjuke ting</dikt>
+                <epost>albert.berntsen@email.com</epost>
+        </Dikt>
+        <Dikt>
+                <diktID>2</diktID>
+                <dikt>For lenge, lenge siden i et land langt langt borte var shrek</dikt>
+                <epost>christian.dahl@fmail.com</epost>
+        </Dikt>
+        <Dikt>
+                <diktID>3</diktID>
+                <dikt>Mogu mogu yummy magic cunny yamu yamu ari no manma mogu mogu</dikt>
+                <epost>okayu.nekomata@holo.jp</epost>
+        </Dikt>
 </DiktDB>

@@ -1,3 +1,6 @@
+// TODO  Make login boxes uniform
+// TODO  Ekstra knapper er lagt til i loginbox
+
 var loggedIn = false;
 
 function pageInit() {
@@ -30,54 +33,56 @@ function isLoggedIn() {
 function logIn() {
 	let email = document.getElementById("inUsername").value;
 	let password = document.getElementById("inPassword").value;
-	let xmlbody = "";  // TODO Se hvordan body her skal være med hensyn til database
-	fetch("/diktdb/login", {  // TODO Change to correct fetch
-		method: "POST",
-		headers: {
-			"Content-Type": "text/xml",
-		},
-		body: xmlbody,
-	});
-	// TODO Give response based on whether successful or not
-	// TODO if successful then also add email cookie
-	document.getElementById("loginBox").innerHTML = "<p>You are logged in</p><br><button onclick=\"logOut()\" type=\"button\">log out</button>";
-	loggedIn = true;
-	listPoems();
+	let xmlbody = "<epost>" + email + "</epost><passord>" + password + "</passord>";
+	fetch("http://localhost:8180/login", {method: "POST", body: xmlbody, credentials: "include"})
+		.then(reply => reply.text())
+		.then(response => {
+			if (response.includes("SUCCESS")) {			
+				document.getElementById("loginBox").innerHTML = "<p>You are logged in</p><br><button onclick=\"logOut()\" type=\"button\">log out</button><br><br><button onclick=\"addPoem()\" type=\"button\">submit new poem</button><br><br><button onclick=\"deleteAllPoems()\" type=\"button\">delete all poems</button>";
+				loggedIn = true;
+				listPoems();
+			} else {
+				alert("Login failed");
+			}
+		});
 }
 
 function logOut() {
-	fetch("/diktdb/logut", {method: "DELETE"});
-	document.cookie = "ssid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-	let text = "<p>You are not logged in</p>" +
-		"<label for=\"inUsername\">Username:</label><br>" +
-		"<input type=\"text\" id=\"inUsername\" name=\"inUsername\">" +
-		"<br><br>" +
-		"<label for=\"inPassword\">Password:</label><br>" +
-		"<input type=\"text\" id=\"inPassword\" name=\"inPassword\"><br>" +
-		"<button onclick=\"logIn()\" type=\"button\">Log in</button>";
-	document.getElementById("loginBox").innerHTML = text;
-	loggedIn = false;
-	listPoems();
+	fetch("http://localhost:8180/logout", {method: "DELETE", credentials: "include"})
+		.then(reply => reply.text())
+		.then(response => {
+			let text = "<p>You are not logged in</p>" +
+				"<label for=\"inUsername\">Username:</label><br>" +
+				"<input type=\"text\" id=\"inUsername\" name=\"inUsername\">" +
+				"<br><br>" +
+				"<label for=\"inPassword\">Password:</label><br>" +
+				"<input type=\"text\" id=\"inPassword\" name=\"inPassword\"><br>" +
+				"<button onclick=\"logIn()\" type=\"button\">Log in</button>";
+			document.getElementById("loginBox").innerHTML = text;
+			loggedIn = false;
+			listPoems();
+		});
 }
 
 function addPoem() {
-	document.getElementById("reply").innerHTML = "<textarea id=\"inNewPoem\" rows=\"10\" cols=\"50\">" + poem + "</textarea><br><button onclick=\"submitNewPoem(" + id + ")\" type=\"button\">submit</button>";
+	document.getElementById("reply").innerHTML = "<textarea id=\"inNewPoem\" rows=\"10\" cols=\"50\"></textarea><br><button onclick=\"submitNewPoem()\" type=\"button\">submit</button>";
 }
 
 function submitNewPoem() {
 	let xmlbody = "<dikt>" + document.getElementById("inNewPoem").value + "</dikt>";
-	fetch("/diktdb/dikt/", {  // TODO Change to correct fetch
-		method: "POST",
-		headers: {
-			"Content-Type": "text/xml",
-		},
-		body: xmlbody,
-	});
-	// TODO Give response based on whether successful or not
+	fetch("http://localhost:8180/", {method: "POST", body: xmlbody, credentials: "include"})
+		.then(reply => reply.text())
+		.then(response => {
+			if (response.includes("SUCCESS")) {
+				listPoems();
+			} else {
+				alert("Error submitting poem");
+			}
+		});
 }
 
 function viewPoem(id) {
-	fetch("/dikttest/dikt" + id + ".xml")  // TODO Change to correct fetch
+	fetch("http://localhost:8180/" + id)
 		.then(reply => reply.text())
 		.then(xmlString => new window.DOMParser().parseFromString(xmlString, "text/xml"))
 		.then(xmlDoc => {
@@ -88,7 +93,7 @@ function viewPoem(id) {
 }
 
 function editPoem(id) {
-	fetch("/dikttest/dikt" + id + ".xml")  // TODO Change to correct fetch
+	fetch("http://localhost:8180/" + id)
 		.then(reply => reply.text())
 		.then(xmlString => new window.DOMParser().parseFromString(xmlString, "text/xml"))
 		.then(xmlDoc => {
@@ -99,18 +104,19 @@ function editPoem(id) {
 
 function submitEditedPoem(id) {
 	let xmlbody = "<dikt>" + document.getElementById("inEditedPoem").value + "</dikt>";
-	fetch("/diktdb/dikt/" + id, {  // TODO Change to correct fetch
-		method: "PUT",
-		headers: {
-			"Content-Type": "text/xml",
-		},
-		body: xmlbody,
-	});
-	// TODO Give response based on whether successful or not
+	fetch("http://localhost:8180/" + id, {method: "PUT", body: xmlbody, credentials: "include"})
+		.then(reply => reply.text())
+		.then(response => {
+			if (response.includes("SUCCESS")) {
+				listPoems();
+			} else {
+				alert("Error editing poem");
+			}
+		});
 }
 
 function deletePoem(id) {
-	fetch("/dikttest/dikt" + id + ".xml")  // TODO Change to correct fetch
+	fetch("http://localhost:8180/" + id)
 		.then(reply => reply.text())
 		.then(xmlString => new window.DOMParser().parseFromString(xmlString, "text/xml"))
 		.then(xmlDoc => {
@@ -120,8 +126,8 @@ function deletePoem(id) {
 }
 
 function confirmPoemDeletion(id) {
-	fetch("/diktdb/dikt/" + id, {method: "DELETE"});  // TODO change to correct fetch
-	// TODO Give response based on whether successful or not
+	fetch("http://localhost:8180/" + id, {method: "DELETE", credentials: "include"})
+		.then(listPoems());
 }
 
 function deleteAllPoems() {
@@ -129,16 +135,16 @@ function deleteAllPoems() {
 }
 
 function confirmDeleteAllPoems() {
-	fetch("/diktdb/dikt/", {method: "DELETE"});  // TODO change to correct fetch
-	// TODO Give response based on whether successful or not
+	fetch("http://localhost:8180/", {method: "DELETE", credentials: "include"}) 
+		.then(listPoems());
 }
 
 function listPoems() {
-	fetch("/testdata.xml")  // TODO Change to correct fetch
+	fetch("http://localhost:8180/")
 		.then(reply => reply.text())
 		.then(xmlString => new window.DOMParser().parseFromString(xmlString, "text/xml"))
 		.then(xmlDoc => {
-			let ids = xmlDoc.getElementsByTagName("diktId");
+			let ids = xmlDoc.getElementsByTagName("diktID");
 			let poems = xmlDoc.getElementsByTagName("dikt");
 			let emails = xmlDoc.getElementsByTagName("epost");
 
