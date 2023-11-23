@@ -1,0 +1,5 @@
+<!ELEMENT DiktDB (Dikt*)>
+<!ELEMENT Dikt (diktID, dikt, epost)>
+<!ELEMENT diktID (#PCDATA)>
+<!ELEMENT dikt (#PCDATA)>
+<!ELEMENT epost (#PCDATA)>

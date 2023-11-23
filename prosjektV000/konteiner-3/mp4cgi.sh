@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TOKEN=$(echo $HTTP_COOKIE | sed 's|.*ssid=\(.*\).*|\1|')
+SSID: echo $COOKIE | tr ";" "\n" | grep "ssid" | cut -d "=" -f 2
 if [ $SSID ]
 then
         LOGIN=TRUE
