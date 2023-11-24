@@ -43,7 +43,7 @@ function getSessionID() {
 function logIn() {
 	let email = document.getElementById("inUsername").value;
 	let password = document.getElementById("inPassword").value;
-	let xmlbody = "<Bruker><epost>" + email + "</epost><passord>" + password + "</passord></Bruker>";
+	let xmlbody = "<?xml version=\"1.0\"?><!DOCTYPE DiktDB SYSTEM \"http://localhost/userLogin.dtd\"><Bruker><epost>" + email + "</epost><passord>" + password + "</passord></Bruker>";
 	fetch("http://localhost:8180/login", {method: "POST", body: xmlbody, credentials: "include"})
 		.then(reply => reply.text())
 		.then(response => {
@@ -72,7 +72,7 @@ function addPoem() {
 }
 
 function submitNewPoem() {
-	let xmlbody = "<Dikt><dikt>" + document.getElementById("inNewPoem").value + "</dikt></Dikt>";
+	let xmlbody = "<?xml version=\"1.0\"?><!DOCTYPE DiktDB SYSTEM \"http://localhost/poemSubmission.dtd\"><Dikt><dikt>" + document.getElementById("inNewPoem").value + "</dikt></Dikt>";
 	fetch("http://localhost:8180/", {method: "POST", body: xmlbody, credentials: "include"})
 		.then(reply => reply.text())
 		.then(response => {
@@ -106,7 +106,7 @@ function editPoem(id) {
 }
 
 function submitEditedPoem(id) {
-	let xmlbody = "<Dikt><dikt>" + document.getElementById("inEditedPoem").value + "</dikt></Dikt>";
+	let xmlbody = "<?xml version=\"1.0\"?><!DOCTYPE DiktDB SYSTEM \"http://localhost/poemSubmission.dtd\"><Dikt><dikt>" + document.getElementById("inEditedPoem").value + "</dikt></Dikt>";
 	fetch("http://localhost:8180/" + id, {method: "PUT", body: xmlbody, credentials: "include"})
 		.then(reply => reply.text())
 		.then(response => {

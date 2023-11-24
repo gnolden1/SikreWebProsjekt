@@ -12,7 +12,7 @@ TOKEN=$(echo $HTTP_COOKIE | sed 's|.*ssid=\(.*\).*|\1|')
 if [ "$REQUEST_METHOD" = "OPTIONS" ]
 then
 	echo
-	echo "Go ahead, Mr. Joestar!"
+	echo "OPTIONS RESPONSE BODY"
 fi
 
 if [ "$REQUEST_METHOD" = "POST" -a "$REQUEST_URI" = "/login" ]
@@ -20,14 +20,14 @@ then
 	read -n$CONTENT_LENGTH
 	BODY=$REPLY
 	
-	INVALID=$(echo $BODY > temp.xml && xmlstarlet val -d userLogin.dtd temp.xml | grep invalid && rm temp.xml)
+	: 'INVALID=$(echo $BODY > temp.xml && xmlstarlet val -d userLogin.dtd temp.xml | grep invalid && rm temp.xml)
 	if [ $INVALID ]
 	then
 		echo
 		echo "FAILURE"
 		echo "XML INVALID"
 		exit
-	fi
+	fi'
 
         PW=$(echo $BODY | sed 's|.*<passord>\(.*\)</passord>.*|\1|')
 	EPOST=$(echo $BODY | sed 's|.*<epost>\(.*\)</epost>.*|\1|')
@@ -69,44 +69,48 @@ then
 	echo
         if [[ $REQUEST_URI = */ ]]
         then
-        	RESPONSE=$(	echo "SELECT * from Dikt"	                |\
-                        	sqlite3 --json /db/database.db                	|\
-                        	jq .                                    	|\
-                        	sed 's|"\(.*\)": \([0-9]\+\),*|<\1> \2 </\1>|'  |\
-                        	sed 's|"\(.*\)": "*\(.*\)",*|<\1> \2 </\1>|' 	|\
-				tr -s " " | grep .....* | sed 's|^ ||'		|\
-				sed 's|^\(<diktID>\)|<Dikt>\1|' 		|\
-				sed 's|\(</epost>\)$|\1</Dikt>|'		|\
-				sed '1i <DiktDB>' | cat - <(echo "</DiktDB>")	|\
+        	RESPONSE=$(	echo "SELECT * from Dikt"	                			|\
+                        	sqlite3 --json /db/database.db                				|\
+                        	jq .                                    				|\
+                        	sed 's|"\(.*\)": \([0-9]\+\),*|<\1> \2 </\1>|'  			|\
+                        	sed 's|"\(.*\)": "*\(.*\)",*|<\1> \2 </\1>|' 				|\
+				tr -s " " | grep .....* | sed 's|^ ||'					|\
+				sed 's|^\(<diktID>\)|<Dikt>\1|' 					|\
+				sed 's|\(</epost>\)$|\1</Dikt>|'					|\
+				sed '1i <?xml version="1.0"?>'						|\
+				sed '2i <!DOCTYPE DiktDB SYSTEM "http://localhost/allPoems.dtd">'	|\
+				sed '3i <DiktDB>' | cat - <(echo "</DiktDB>")				|\
 				sed 's|> |>|' | sed 's| <|<|')
 		
-		INVALID=$(echo $RESPONSE > temp.xml && xmlstarlet val -d allPoems.dtd temp.xml | grep invalid && rm temp.xml)
+		:'INVALID=$(echo $RESPONSE > temp.xml && xmlstarlet val -d allPoems.dtd temp.xml | grep invalid && rm temp.xml)
 		if [ $INVALID ]
 		then
 			echo "FAILURE"
 			echo "SERVERSIDE XML INVALID"
 			exit
-		fi
+		fi'
 		echo $RESPONSE
 	else
         	DIKT_ID=$(echo $REQUEST_URI | tr -d "/" -f 1)
-                RESPONSE=$(	echo "SELECT * from Dikt WHERE diktID = $DIKT_ID;"     	|\
-                		sqlite3 --json /db/database.db				|\
-                        	jq .                                            	|\
-                        	sed 's|"\(.*\)": \([0-9]\+\),*|<\1> \2 </\1>|'		|\
-                        	sed 's|"\(.*\)": "*\(.*\)",*|<\1> \2 </\1>|' 		|\
-                        	tr -s " " | grep .....* | sed 's|^ ||'			|\
-				sed 's|^\(<diktID>\)|<Dikt>\1|' 			|\
-				sed 's|\(</epost>\)$|\1</Dikt>|'			|\
-				sed 's|> |>|' | sed 's| <|<|')
+                RESPONSE=$(	echo "SELECT * from Dikt WHERE diktID = $DIKT_ID;"     			|\
+                		sqlite3 --json /db/database.db						|\
+                        	jq .                                            			|\
+                        	sed 's|"\(.*\)": \([0-9]\+\),*|<\1> \2 </\1>|'				|\
+                        	sed 's|"\(.*\)": "*\(.*\)",*|<\1> \2 </\1>|' 				|\
+                        	tr -s " " | grep .....* | sed 's|^ ||'					|\
+				sed 's|^\(<diktID>\)|<Dikt>\1|' 					|\
+				sed 's|\(</epost>\)$|\1</Dikt>|'					|\
+				sed 's|> |>|' | sed 's| <|<|'						|\
+				sed '1i <?xml version="1.0"?>'						|\
+				sed '2i <!DOCTYPE DiktDB SYSTEM "http://localhost/singlePoems.dtd">')
 
-		INVALID=$(echo $RESPONSE > temp.xml && xmlstarlet val -d singlePoems.dtd temp.xml | grep invalid && rm temp.xml)
+		:'INVALID=$(echo $RESPONSE > temp.xml && xmlstarlet val -d singlePoems.dtd temp.xml | grep invalid && rm temp.xml)
 		if [ $INVALID ]
 		then
 			echo "FAILURE"
 			echo "SERVERSIDE XML INVALID"
 			exit
-		fi
+		fi'
 		echo $RESPONSE
         fi
 fi
@@ -116,14 +120,14 @@ then
 	read -n$CONTENT_LENGTH
 	BODY=$REPLY
 
-	INVALID=$(echo $BODY > temp.xml && xmlstarlet val -d poemSubmission.dtd temp.xml | grep invalid && rm temp.xml)
+	:'INVALID=$(echo $BODY > temp.xml && xmlstarlet val -d poemSubmission.dtd temp.xml | grep invalid && rm temp.xml)
 	if [ $INVALID ]
 	then
 		echo
 		echo "FAILURE"
 		echo "XML INVALID"
 		exit
-	fi
+	fi'
 
 	EPOST=$(echo "SELECT epost FROM Sesjon WHERE sesjonsID = \"$TOKEN\"" | sqlite3 /db/database.db)
 	
@@ -143,14 +147,14 @@ then
 	read -n$CONTENT_LENGTH
 	BODY=$REPLY
 	
-	INVALID=$(echo $BODY > temp.xml && xmlstarlet val -d poemSubmission.dtd temp.xml | grep invalid && rm temp.xml)
+	:'INVALID=$(echo $BODY > temp.xml && xmlstarlet val -d poemSubmission.dtd temp.xml | grep invalid && rm temp.xml)
 	if [ $INVALID ]
 	then
 		echo
 		echo "FAILURE"
 		echo "XML INVALID"
 		exit
-	fi
+	fi'
 
 	EPOST=$(echo "SELECT epost FROM Sesjon WHERE sesjonsID = \"$TOKEN\"" | sqlite3 /db/database.db)
 

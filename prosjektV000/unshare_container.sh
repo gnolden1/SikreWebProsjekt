@@ -17,6 +17,7 @@ then
     cp /etc/mime.types $ROTFS/etc/
     cp mp2files/server.c $ROTFS/bin/
     cp mp2files/www/* $ROTFS/var/www/
+    cp mp2files/dtd/* $ROTFS/var/www/
     touch $ROTFS/var/log/debug.log
 
     cd       $ROTFS/bin/
