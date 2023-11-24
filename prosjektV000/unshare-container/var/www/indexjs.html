@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gruppeside</title>
+		<link rel="stylesheet" href="indexjsStil.css">
+		<meta charset="utf-8">
+		<script src="indexScript.js"></script>
+	</head>
+
+	<body onload="pageInit()">
+		<div id="headerRow">
+			<div id="homepageLink"><p><a href="/index.html">Hjemmeside</a></p></div>
+			<div id="loginBox">
+				<p>You are not logged in</p>
+				<label for="inUsername">Username:</label><br>
+				<input type="text" id="inUsername" name="inUsername"><br><br>
+				<label for="inPassword">Password:</label><br>
+				<input type="text" id="inPassword" name="inPassword"><br>
+				<button onclick="logIn()" type="button">Log in</button>
+			</div>
+		</div>
+		<h1>Diktdatabase</h1>
+		<button onclick="listPoems()" type="button">List poems</button>
+		<div id="reply"></div>
+	</body>
+</html>

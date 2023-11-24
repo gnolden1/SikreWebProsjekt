@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gruppe>
+	<medlem>
+		<navn>Didrik</navn>
+		<kjaeledyr>To hunder og en katt</kjaeledyr>
+		<favorittmat>Lasagne</favorittmat>
+	</medlem>
+	<medlem>
+		<navn>Ole Didrik</navn>
+		<kjaeledyr>Ukjent</kjaeledyr>
+		<favorittmat>Ukjent</favorittmat>
+	</medlem>
+	<medlem>
+		<navn>Daniel</navn>
+		<kjaeledyr>Ukjent</kjaeledyr>
+		<favorittmat>Ukjent</favorittmat>
+	</medlem>
+</gruppe>

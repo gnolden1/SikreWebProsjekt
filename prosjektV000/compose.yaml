@@ -1,12 +1,5 @@
 version: '3.8'
 services:
-  konteiner1:
-    image: konteiner1
-    build:
-      context: .
-      dockerfile: Dockerfile
-    deploy:
-      mode: build
 
   konteiner2:
     image: konteiner2
@@ -14,8 +7,6 @@ services:
       context: ./konteiner-2
       dockerfile: Dockerfile
     container_name: konteiner2
-    depends_on:
-      - konteiner1
     ports:
       - "8180:80"
     networks:
@@ -46,8 +37,6 @@ services:
       context: ./konteiner-3
       dockerfile: Dockerfile
     container_name: konteiner3
-    depends_on:
-      - konteiner1
     ports:
       - "8080:80"
     networks:

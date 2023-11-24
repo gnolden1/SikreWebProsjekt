@@ -1,0 +1,311 @@
+
+2023-11-24 09:29:46 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+2023-11-24 09:29:46 New connection.
+GET /stil.css HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: text/css,*/*;q=0.1
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: http://localhost/
+Sec-Fetch-Dest: style
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: same-origin
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/stil.css
+File extension: css
+Mimetype: text/css
+
+2023-11-24 09:29:46 New connection.
+
+2023-11-24 09:29:46 New connection.
+GET GET /gruppebilde.jpg HTTP/1.1
+/stil.css HTTP/1.1
+Host: localhost
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: image/avif,image/webp,*/*
+Accept: text/css,*/*;q=0.1
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept-Encoding: gzip, deflate, br
+Referer: http://localhost/
+Connection: keep-alive
+Sec-Fetch-Dest: image
+Referer: http://localhost/
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+DNT: 1
+Sec-Fetch-Site: same-origin
+Sec-GPC: 1
+DNT: 1
+
+Sec-GPC: 1
+
+Adjusted filename: /var/www/gruppebilde.jpg
+Adjusted filename: /var/www/stil.css
+File extension: css
+File extension: jpg
+Mimetype: text/css
+Mimetype: image/jpeg
+
+2023-11-24 09:29:48 New connection.
+GET /favicon.ico HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: image/avif,image/webp,*/*
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: http://localhost/
+Sec-Fetch-Dest: image
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: same-origin
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/favicon.ico
+File extension: ico
+Mimetype: image/vnd.microsoft.icon
+
+2023-11-24 09:31:49 New connection.
+GET / HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: cross-site
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+2023-11-24 09:32:02 New connection.
+GET /indexjs.html HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/indexjs.html
+File extension: html
+Mimetype: text/html
+
+2023-11-24 09:32:18 New connection.
+GET /index.html HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+2023-11-24 09:32:38 New connection.
+GET /indexjs.html HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: http://localhost/
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/indexjs.html
+File extension: html
+Mimetype: text/html
+
+2023-11-24 09:32:38 New connection.
+GET 
+2023-11-24 09:32:38 New connection.
+/indexjsStil.css HTTP/1.1
+GET Host: localhost
+/indexScript.js HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Host: localhost
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: */*
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept-Encoding: gzip, deflate, br
+Referer: http://localhost/indexjs.html
+Connection: keep-alive
+Sec-Fetch-Dest: style
+Referer: http://localhost/indexjs.html
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+DNT: 1
+Sec-Fetch-Site: same-origin
+DNT: 1
+Sec-GPC: 1
+
+Sec-GPC: 1
+Adjusted filename: /var/www/indexjsStil.css
+
+Adjusted filename: /var/www/indexScript.js
+File extension: css
+File extension: js
+Mimetype: text/css
+Mimetype: text/javascript
+
+2023-11-24 09:32:38 New connection.
+GET /serviceWorker.js HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: */*
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Service-Worker: script
+Connection: keep-alive
+Sec-Fetch-Dest: serviceworker
+Sec-Fetch-Mode: same-origin
+Sec-Fetch-Site: same-origin
+Pragma: no-cache
+Cache-Control: no-cache
+
+Adjusted filename: /var/www/serviceWorker.js
+File extension: js
+Mimetype: text/javascript
+
+2023-11-24 09:32:42 New connection.
+GET /index.html HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: http://localhost/indexjs.html
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/index.html
+File extension: html
+Mimetype: text/html
+
+2023-11-24 09:32:42 New connection.
+
+2023-11-24 09:32:42 New connection.
+GET /stil.cssGET  HTTP/1.1
+Host: localhost
+/stil.css HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Host: localhost
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept: text/css,*/*;q=0.1
+Accept-Encoding: gzip, deflate, br
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Connection: keep-alive
+Accept-Encoding: gzip, deflate, br
+Referer: http://localhost/index.html
+Connection: keep-alive
+Referer: http://localhost/index.html
+Sec-Fetch-Dest: style
+Sec-Fetch-Dest: style
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Site: same-origin
+DNT: 1
+DNT: 1
+Sec-GPC: 1
+Sec-GPC: 1
+
+
+Adjusted filename: /var/www/stil.css
+Adjusted filename: /var/www/stil.css
+File extension: css
+File extension: css
+Mimetype: text/css
+Mimetype: text/css
+
+2023-11-24 09:32:42 New connection.
+GET /gruppebilde.jpg HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+Accept: image/avif,image/webp,*/*
+Accept-Language: nb-NO,nb;q=0.9,no-NO;q=0.8,no;q=0.6,nn-NO;q=0.5,nn;q=0.4,en-US;q=0.3,en;q=0.1
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: http://localhost/index.html
+Sec-Fetch-Dest: image
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: same-origin
+DNT: 1
+Sec-GPC: 1
+
+Adjusted filename: /var/www/gruppebilde.jpg
+File extension: jpg
+Mimetype: image/jpeg
