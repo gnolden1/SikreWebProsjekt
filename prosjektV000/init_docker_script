@@ -1,11 +1,12 @@
 #!/bin/bash
 
-sudo docker build -t konteiner1 .
-sudo docker build -t konteiner2 ./konteiner-2
-sudo docker build -t konteiner3 ./konteiner-3
+#sudo docker build -t konteiner1 .
+#sudo docker build -t konteiner2 ./konteiner-2
+#sudo docker build -t konteiner3 ./konteiner-3
 
-sudo docker run -d --name konteiner1 konteiner1
-sudo docker run -d -p 8180:80 --name konteiner2 konteiner2
-sudo docker run -d -p 8080:80 --name konteiner3 konteiner3
-#sudo docker  compose build
-#sudo docker compose up -d
+#sudo docker run -d --name konteiner1 konteiner1
+#sudo docker run -d -p 8180:80 --name konteiner2 konteiner2
+#sudo docker run -d -p 8080:80 --name konteiner3 konteiner3
+
+sudo docker compose build --no-cache
+sudo docker compose up -d
