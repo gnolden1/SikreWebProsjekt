@@ -18,9 +18,37 @@ SUBLOGOUT=$(echo $QUERY_STRING | tr "&" "\n" | grep "subLogout")
 if [ $SUBLOGOUT ]
 then
         LOGIN=FALSE
+        curl -b ssid=$TOKEN -X DELETE konteiner2/logout > /dev/null
+        echo "Set-Cookie: ssid=deleted; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
 fi
 
-#SUBGETALL=GET http://localhost:8180/ 
+TOKEN=$(echo $HTTP_COOKIE | sed 's|.*ssid=\(.*\).*|\1|')
+if [ $TOKEN ]
+then
+        LOGIN=TRUE
+else
+        LOGIN=FALSE
+fi
+
+SLETT=$(echo $QUERY_STRING | tr "&" "\n" | grep "DELETE")
+
+if [ $SLETT ]
+then
+        ID=$(echo $SLETT | cut -d "=" -f 2)
+        curl -b ssid=$TOKEN -X DELETE konteiner2/$ID > /dev/null
+
+fi
+
+
+REDIGER=$(echo $QUERY_STRING | tr "&" "\n" | grep "PUT")
+
+if [ $REDIGER ]
+then
+        ID=$(echo $REDIGER | cut -d "=" -f 2)
+        TEKSTSTRENG=$(echo $QUERY_STRING | tr "&" "\n" | grep "Tekstredigering" | cut -d "=" -f 2)
+        curl -b ssid=$TOKEN -X PUT konteiner2/$ID -d "$TEKSTSTRENG" > /dev/null
+fi
+
 
 
 echo "Content-type:text/html;charset=utf-8"
@@ -36,6 +64,13 @@ cat << EOF
                 <link rel="stylesheet" href="http://localhost:80/stil.css">
         </head>
         <body>
+
+
+
+
+
+
+
 EOF
 if [ "$LOGIN" = "TRUE" ]
 then
@@ -56,47 +91,121 @@ else
                 </form>"
 fi
 echo "<a href="http://localhost:80/index.html">Link to mp2-nettsiden</a>"
-echo "<br><br><h1>Diktdatabasetest</h1>"
+echo "<br><br><h1>Diktdatase Input</h1>"
+
 
  echo "
-                
+
     <form action="http://localhost:8180/" method="post">
         <label for="poem">Dikt:</label>
-        <textarea id="dikt" name="dikt" rows="4" cols="50"></textarea>
+        <textarea id="dikt" name="dikt" placeholder="Dikt" rows="15" cols="50"></textarea>
         <br>
         <input type="submit" value="Submit">
     </form>"
 
 
+
 cat <<EOF
         <form action="http://localhost:8180" method="GET">
          <div>
-                <label for="input">Velg Alle Dikt?</label>
-        </div>
-         <div>
-        <button>Velg alle dikt</button>
+       <br><br> <button>Velg alle dikt</button><br><br>
         </div>
         </form>
-        
-        <form action="http://localhost:8180/" method="GET">
+
+
+
+         <form action="http://localhost:8180" method="GET">
                  <div>
-                        <label for="input">Velg Spesifikt dikt?</label>
-                         <input name="input" id="input" value="1" />
-                 </div>
-                 <div>
-                         <button>Velg spesifikt dikt</button>
+                        <input type="submit" formaction="http://localhost:8080" formmethod="get" name="DELETE" value="">Slettalt
                 </div>
-         </form>
+        </form>
+
 
 EOF
 
- 
-#if [ -z "$QUERY_STRING" -o "$SUBGETALL" ] 
-#then
+#echo "$ID"
+echo "$REDIGER"
+
+
+
+echo "
+
+        <style>
+        table, th, td {
+        margin-left: auto;  
+        margin-right: auto; 
+        }
+        </style>
+
+        <table>
+       "
+
+#echo $(curl --silent konteiner2 | grep "diktID" | sed 's|.*>\(.*\)<.*|\1|')
+
+I=curl --silent konteiner2 | grep "diktID" | sed 's|.*>\(.*\)<.*|\1|'
+
+for i in $(curl --silent konteiner2 | grep "diktID" | sed 's|.*>\(.*\)<.*|\1|')
+do
+   echo "
+        <tr>
+        <td>
+
+           <form action="http://localhost:8180/$i" method="post">
+                <label for="poem">Dikt $i:</label>
+                <br>
+
+
+
+                <input type="submit" formethod="put" value="Endre">
+                <input type="submit" formmethod="get" value="Hent">
+                <input type="submit" formaction="http://localhost:8080" formmethod="get" name="DELETE" value="$i">Slett
+
+
+
+
+           </form>
+        <label for=rediger>Dikt:</label>
+        <text area placeholder="EndreDikt" id="PUT" type="submit" rows="30" cols="30" formaction="http://localhost:8080" formmethod="get" name="PUT" value="$i">Rediger</text area><>
+
+
+    <form action=http://localhost:8080/ method=get>
+        <label for=poem>Dikt $i:</label>
+        <textarea id=dikt name="Tekstredigering" placeholder=Rediger rows=15 cols=50></textarea>
+        <br>
+        <input type="submit" formaction="http://localhost:8080" formmethod="get" name="PUT" value="$i">Rediger
+
+
+    </form>
+
+
+        <a href="localhost:8180/$i">Dikt nummer $i</a>
+
+        </td>
+        </tr>
+"
+
+done
+
+</table>
+
+
+
+
+
+
+
+
+if [ "$QUERY_STRING" -o "$SUBGETALL" ]
+then
+
+
+
 
 #
 
-        
+
 #fi
 
 echo "</body></html>"
+
+
