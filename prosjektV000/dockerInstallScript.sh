@@ -20,3 +20,5 @@ sudo apt-get update
 add user webserver
 sudo cp daemon.json /etc/docker/daemon.json
 systemctl docker restart
+docker build . -t konteiner1
+
