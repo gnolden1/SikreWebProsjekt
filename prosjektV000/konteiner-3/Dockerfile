@@ -1,7 +1,7 @@
 FROM konteiner1
 EXPOSE 8080
 
-RUN apk add --no-cache jq
+RUN apk add --no-cache curl
 COPY ./mp4cgi.sh /usr/local/apache2/cgi-bin/cgi.sh
 RUN chmod +x /usr/local/apache2/cgi-bin/cgi.sh
 
