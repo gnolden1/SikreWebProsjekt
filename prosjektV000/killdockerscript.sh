@@ -12,5 +12,9 @@
 docker rm -f $(docker ps -a -q)
 docker image rm $(sudo docker images -a -q)
 
+#Sikrer at konteiner1 er oppe og går
+docker build . -t konteiner1
+
+
 #sudo docker compose down
 #kan også sudo docker konteiner2 down feks

@@ -96,7 +96,7 @@ echo "<br><br><h1>Diktdatase Input</h1>"
 
  echo "
 
-    <form action="http://localhost:8180/" method="post">
+    <form action="http://localhost:8180/" method="post" enctype="text/plain">
         <label for="poem">Dikt:</label>
         <textarea id="dikt" name="dikt" placeholder="Dikt" rows="15" cols="50"></textarea>
         <br>
@@ -150,13 +150,13 @@ do
         <tr>
         <td>
 
-           <form action="http://localhost:8180/$i" method="post">
+           <form action="http://localhost:8180/$i" method="post" enctype="text/plain">
                 <label for="poem">Dikt $i:</label>
                 <br>
 
 
 
-                <input type="submit" formethod="put" value="Endre">
+                <input type="submit" formethod="put" value="Endre" enctype="text/plain">
                 <input type="submit" formmethod="get" value="Hent">
                 <input type="submit" formaction="http://localhost:8080" formmethod="get" name="DELETE" value="$i">Slett
 
@@ -172,7 +172,7 @@ do
         <label for=poem>Dikt $i:</label>
         <textarea id=dikt name="Tekstredigering" placeholder=Rediger rows=15 cols=50></textarea>
         <br>
-        <input type="submit" formaction="http://localhost:8080" formmethod="get" name="PUT" value="$i">Rediger
+        <input type="submit" formaction="http://localhost:8080" formmethod="get" name="PUT" value="$i" enctype="text/plain">Rediger
 
 
     </form>

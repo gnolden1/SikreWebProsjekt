@@ -1,4 +1,4 @@
-FROM konteiner1
+FROM grunnbilde
 EXPOSE 8080
 
 RUN apk add --no-cache curl

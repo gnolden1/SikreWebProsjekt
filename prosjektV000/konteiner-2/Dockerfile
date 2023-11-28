@@ -1,4 +1,4 @@
-FROM konteiner1
+FROM grunnbilde
 
 EXPOSE 8180
 
