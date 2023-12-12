@@ -25,39 +25,14 @@ then
     cp       /bin/busybox .
     for P in $(./busybox --list); do ln busybox $P; done;
 
-    cat <<EOF > rootinit.sh
+    cat <<EOF > $INIT
 #!/bin/sh
 mount -t proc none /proc 
-a.out 0
+a.out
 EOF
 
-cat <<EOF > nonrootinit.sh
-#!/bin/sh
-mount -t proc none /proc 
-a.out 1
-EOF
-
-    chmod +x rootinit.sh
-    chmod +x nonrootinit.sh
+    chmod +x init.sh
 fi
 
 cd $ROTFS
-USER=$(whoami)
-if [ $USER = root ]
-then
-	echo Running as root
-	PATH=/bin unshare --fork --pid /usr/sbin/chroot $ROTFS bin/rootinit.sh &
-else
-	echo Not running as root
-	PATH=/bin		\
-		unshare         \
-		--user          \
-		--map-root-user \
-		--fork          \
-		--pid           \
-		--mount         \
-		--cgroup        \
-		--ipc		\
-		--uts           \
-		/usr/sbin/chroot $ROTFS /bin/nonrootinit.sh &
-fi
+sudo -b PATH=/bin unshare --fork --pid /usr/sbin/chroot . bin/init.sh

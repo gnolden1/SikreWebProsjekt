@@ -1,9 +1,17 @@
 #!/bin/sh
 
+
 echo "Content-type:text/plain;charset=utf-8"
 
 echo "Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"
-echo "Access-Control-Allow-Origin: http://localhost"
+
+if [[ $HTTP_REFERER = *localhost:* ]]
+then
+	echo "Access-Control-Allow-Origin: $(echo $HTTP_REFERER | sed 's|.$||')"
+else
+	echo "Access-Control-Allow-Origin: http://localhost"
+fi
+
 echo "Access-Control-Allow-Credentials: true"
 
 

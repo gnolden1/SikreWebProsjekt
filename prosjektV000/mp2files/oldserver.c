@@ -39,29 +39,10 @@ void freeRequestHeader(struct headerNode *node);
 char *getHeaderField(struct headerNode *head, char *targetField);
 
 
-int main (int argc, char *argv[]) {
+int main () {
+	// Demoniserer tjeneren
 	int ppid = getppid();
 
-	int port;
-	if (ppid == 1) {
-		if (argc != 2 || (*argv[1] != '0' && *argv[1] != '1')) {
-			printf("Expecting one (1) argument: 0 for root, 1 for nonroot.\nargc = %d\n", argc);
-			for (int i = 0; i < argc; i++)
-				printf("%s\n", argv[i]);
-			exit(2);
-		} 
-		if (*argv[1] == '0')
-			port = 80;
-		else
-			port = 8880;
-	} else {
-		if (getuid() == 0)
-			port = 80;
-		else
-			port = 8880;
-	}
-	
-	// Demoniserer tjeneren
 	if (ppid != 1) {
 		if (fork() > 0)
 			exit(0);
@@ -82,12 +63,12 @@ int main (int argc, char *argv[]) {
 
   	// Initierer lokal adresse
   	lok_adr.sin_family      = AF_INET;
-  	lok_adr.sin_port        = htons((u_short)port); 
+  	lok_adr.sin_port        = htons((u_short)LOKAL_PORT); 
   	lok_adr.sin_addr.s_addr = htonl(         INADDR_ANY);
 
   	// Kobler sammen socket og lokal adresse
   	if ( 0==bind(sd, (struct sockaddr *)&lok_adr, sizeof(lok_adr)) )
-  		fprintf(stderr, "Prosess %d er knyttet til port %d.\n", getpid(), port);
+  		fprintf(stderr, "Prosess %d er knyttet til port %d.\n", getpid(), LOKAL_PORT);
   	else
     		exit(1);
 	
