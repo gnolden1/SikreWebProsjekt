@@ -5,7 +5,7 @@ echo "Content-type:text/plain;charset=utf-8"
 
 echo "Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"
 
-if [[ $HTTP_REFERER = *localhost:* ]]
+if [[ $HTTP_REFERER == *localhost:* ]]
 then
 	echo "Access-Control-Allow-Origin: $(echo $HTTP_REFERER | sed 's|.$||')"
 else
@@ -66,7 +66,7 @@ fi
 if [ "$REQUEST_METHOD" = "GET" ]
 then
 	echo
-        if [[ $REQUEST_URI = */ ]]
+        if [[ $REQUEST_URI == */ ]]
         then
         	echo "SELECT * from Dikt"	                			|\
                 sqlite3 --json /db/database.db                				|\
@@ -140,7 +140,7 @@ then
         then
         	echo "FAILURE"
         else
-        	if [[ $REQUEST_URI = */ ]]
+        	if [[ $REQUEST_URI == */ ]]
         	then
 			echo "DELETE FROM Dikt WHERE epost = '$EPOST'" | sqlite3 /db/database.db
     		else
