@@ -25,18 +25,10 @@ struct mimeNode {
 	struct mimeNode *next;
 };
 
-struct headerNode {
-	char *field;
-	char *value;
-	struct headerNode *next;
-};
-
 
 void printFile(FILE *file, long fileSize);
 struct mimeNode *loadMimeTypes();
 char *getMimeType(struct mimeNode *head, char *targetExt);
-void freeRequestHeader(struct headerNode *node);
-char *getHeaderField(struct headerNode *head, char *targetField);
 
 
 int main (int argc, char *argv[]) {
@@ -162,7 +154,6 @@ int main (int argc, char *argv[]) {
 			char *queryString;
 			char *fileExt;
 			char *mimeType;
-			struct headerNode *requestHeader;  // free med egen funksjon: freeRequestHeader(requestHeader)
 
 			// Leser request method
 			length = 0;
@@ -207,64 +198,6 @@ int main (int argc, char *argv[]) {
 			if (queryString != NULL)
 				fprintf(stderr, "?%s", queryString);
 			fprintf(stderr, " HTTP/1.1\n");
-			
-			// TODO Kan evt skaffe http-versjon her, her hoppes det over
-			while (*ch != '\n') 
-				read(ny_sd, ch, sizeof(char));
-			read(ny_sd, ch, sizeof(char));
-
-			// Skaffer header-felter
-			requestHeader = NULL;
-			while (*ch != '\r') {	
-				struct headerNode *node = malloc(sizeof(struct headerNode));
-				char *field;
-				char *value;
-
-				// Skaffer felt
-				length = 0;
-				while (*ch != ':') {
-					buffer[length] = *ch;
-					length++;
-					read(ny_sd, ch, sizeof(char));
-				}
-				buffer[length] = '\0';
-				field = malloc(length + sizeof('\0'));
-				strcpy(field, buffer);
-				node->field = field;
-
-				// Skaffer verdi
-				length = 0;
-				read(ny_sd, ch, sizeof(char));
-				read(ny_sd, ch, sizeof(char));
-				while (*ch != '\r') {
-					buffer[length] = *ch;
-					length++;
-					read(ny_sd, ch, sizeof(char));
-				}
-				buffer[length] = '\0';
-				value = malloc(length + sizeof(char));
-				strcpy(value, buffer);
-				node->value = value;
-
-				read(ny_sd, ch, sizeof(char));
-				read(ny_sd, ch, sizeof(char));
-
-				node->next = NULL;
-
-				// Legger til i liste
-				if (requestHeader == NULL) 
-					requestHeader = node;
-				else {
-					struct headerNode *ptr = requestHeader;
-					while (ptr->next != NULL)
-						ptr = ptr->next;
-					ptr->next = node;
-				}
-
-				fprintf(stderr, "%s: %s\n", node->field, node->value);
-			}
-			read(ny_sd, ch, sizeof(char));
-			fprintf(stderr, "\n");
 
 			// Prefikser og suffikser filnavn etter behov
 			char *prefix = "/var/www";
@@ -309,43 +242,7 @@ int main (int argc, char *argv[]) {
 
 			fprintf(stderr, "Mimetype: %s\n", mimeType);
 
-			// Skaffer relevante header-felter
-			//char *contentLength = getHeaderField(requestHeader, "Content-Length");
-			//char *contentType = getHeaderField(requestHeader, "Content-Type");
-
-			// Åpner og skriver fil, evt feilmeldinger
-			/*if (fileExt == NULL) {
-				printf("HTTP/1.1 200 OK\r\n\n");
-
-				// TODO set all relevant environment variables
-				setenv("REQUEST_METHOD", requestMethod, 1);
-				setenv("DIKTID", fileName, 1);
-				
-				if (queryString != NULL)
-					setenv("QUERY_STRING", queryString, 1);
-				
-				if (contentType != NULL)
-					setenv("CONTENT_TYPE", contentType, 1);
-				
-				if (contentLength != NULL)
-					setenv("CONTENT_LENGTH", contentLength, 1); 
-				
-				printf("You have called the script!\n");
-				fflush(stdout);
-
-				free(requestMethod);
-				free(fileName);
-				free(adjustedFileName);
-				free(queryString);
-				free(fileExt);
-				free(mimeType);
-      				freeRequestHeader(requestHeader);
-				
-				execl("/var/www/script.sh", "/var/www/script.sh", NULL);
-				//shutdown(ny_sd, SHUT_RDWR);
-      				//exit(0);
-			}*/
-
+			// Leser og skriver ut filer, rapporterer evt feilmeldinger
 			FILE *file = fopen(adjustedFileName, "r");
 			if (file == NULL)
 				if (errno == ENOENT)
@@ -373,7 +270,6 @@ int main (int argc, char *argv[]) {
 			free(queryString);
 			free(fileExt);
 			free(mimeType);
-			freeRequestHeader(requestHeader);
 			
 			shutdown(ny_sd, SHUT_RDWR);
       			exit(0);
@@ -452,28 +348,6 @@ char *getMimeType(struct mimeNode *head, char *targetExt) {
 
 			token = strtok(NULL, " ");
 		}
-
-		ptr = ptr->next;
-	}
-
-	return NULL;
-}
-
-
-void freeRequestHeader(struct headerNode *node) {
-	if (node->next != NULL)
-		freeRequestHeader(node->next);
-
-	free(node->field);
-	free(node->value);
-	free(node);
-}
-
-char *getHeaderField(struct headerNode *head, char *targetField) {
-	struct headerNode *ptr = head;
-	while (ptr != NULL) {
-		if (strcmp(ptr->field, targetField) == 0)
-			return ptr->value;
 
 		ptr = ptr->next;
 	}
