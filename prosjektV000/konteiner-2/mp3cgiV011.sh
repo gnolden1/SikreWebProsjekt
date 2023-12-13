@@ -48,13 +48,13 @@ then
 		exit
 	fi
 
-	DB_HASH=$(echo "SELECT passordhash FROM bruker WHERE epost = \"$EPOST\"" | sqlite3 /db/database.db)
+	DB_HASH=$(echo "SELECT passordhash FROM bruker WHERE epost = '$EPOST'" | sqlite3 /db/database.db)
 	PW_HASH=$(echo $PW | sha512sum | sed 's|\(^.*\) -|\1|' | sed 's| ||')
 
         if [ "$PW_HASH" = "$DB_HASH" ]
         then
         	SID=$(uuidgen -r)
-		echo "INSERT INTO Sesjon VALUES (\"$SID\", \"$EPOST\")" | sqlite3 /db/database.db
+		echo "INSERT INTO Sesjon VALUES ('$SID', '$EPOST')" | sqlite3 /db/database.db
 
                 echo "Set-Cookie: ssid=$SID; Path=/; Max-Age: 3600;"
 		echo
@@ -67,7 +67,7 @@ fi
 
 if [ "$REQUEST_METHOD" = "DELETE" -a "$REQUEST_URI" = "/logout" ]
 then
-	echo "DELETE FROM Sesjon WHERE sesjonsID = \"$TOKEN\"" | sqlite3 /db/database.db
+	echo "DELETE FROM Sesjon WHERE sesjonsID = '$TOKEN'" | sqlite3 /db/database.db
 	echo "Set-Cookie: ssid=deleted; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
         echo
 	echo "SUCCESS"
@@ -140,7 +140,7 @@ then
 		exit
 	fi'
 
-	EPOST=$(echo "SELECT epost FROM Sesjon WHERE sesjonsID = \"$TOKEN\"" | sqlite3 /db/database.db)
+	EPOST=$(echo "SELECT epost FROM Sesjon WHERE sesjonsID = '$TOKEN'" | sqlite3 /db/database.db)
 	
 	echo
         if [ -z $EPOST ]
@@ -148,7 +148,7 @@ then
                 echo "FAILURE"
         else
         	DIKT=$(echo $BODY | sed 's|.*<dikt>\(.*\)</dikt>.*|\1|')
-		echo "INSERT INTO Dikt (dikt, epost) VALUES (\"$DIKT\", \"$EPOST\")" | sqlite3 /db/database.db
+		echo "INSERT INTO Dikt (dikt, epost) VALUES ('$DIKT', '$EPOST')" | sqlite3 /db/database.db
         	echo "SUCCESS"
 	fi
 fi
@@ -168,7 +168,7 @@ then
 		exit
 	fi'
 
-	EPOST=$(echo "SELECT epost FROM Sesjon WHERE sesjonsID = \"$TOKEN\"" | sqlite3 /db/database.db)
+	EPOST=$(echo "SELECT epost FROM Sesjon WHERE sesjonsID = '$TOKEN'" | sqlite3 /db/database.db)
 
 	echo
         if [ -z $EPOST ]
@@ -177,14 +177,14 @@ then
         else
         	DIKT=$(echo $BODY | sed 's|.*<dikt>\(.*\)</dikt>.*|\1|')
                 DIKT_ID=$(echo $REQUEST_URI | tr -d "/" -f 1)
-        	echo "UPDATE Dikt SET dikt = \"$DIKT\" WHERE diktID = $DIKT_ID AND epost = \"$EPOST\"" | sqlite3 /db/database.db
+        	echo "UPDATE Dikt SET dikt = '$DIKT' WHERE diktID = $DIKT_ID AND epost = '$EPOST'" | sqlite3 /db/database.db
 		echo "SUCCESS"
 	fi
 fi
 
 if [ "$REQUEST_METHOD" = "DELETE" -a "$REQUEST_URI" != "/logout" ]
 then
-	EPOST=$(echo "SELECT epost FROM Sesjon WHERE sesjonsID = \"$TOKEN\"" | sqlite3 /db/database.db)
+	EPOST=$(echo "SELECT epost FROM Sesjon WHERE sesjonsID = '$TOKEN'" | sqlite3 /db/database.db)
 
 	echo
         if [ -z $EPOST ]
@@ -193,10 +193,10 @@ then
         else
         	if [[ $REQUEST_URI = */ ]]
         	then
-			echo "DELETE FROM Dikt WHERE epost = \"$EPOST\"" | sqlite3 /db/database.db
+			echo "DELETE FROM Dikt WHERE epost = '$EPOST'" | sqlite3 /db/database.db
     		else
                 	DIKT_ID=$(echo $REQUEST_URI | tr -d "/" -f 1)
-			echo "DELETE FROM Dikt WHERE epost = \"$EPOST\" AND diktID = $DIKT_ID" | sqlite3 /db/database.db
+			echo "DELETE FROM Dikt WHERE epost = '$EPOST' AND diktID = $DIKT_ID" | sqlite3 /db/database.db
 		fi
 		echo "SUCCESS"
         fi
