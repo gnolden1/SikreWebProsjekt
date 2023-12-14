@@ -15,6 +15,8 @@ echo \
 	           
 sudo apt-get update
 #install docker-compose
+sudo apt install gcc
+sudo apt install net-tools
 sudo apt-get install docker-compose-plugin	
 sudo apt-get update
 add user webserver
