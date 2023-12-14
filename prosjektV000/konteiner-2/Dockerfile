@@ -5,7 +5,7 @@ EXPOSE 8180
 WORKDIR /db
 
 #Installs:
-RUN apk add --no-cache jq uuidgen xmlstarlet sqlite
+RUN apk add --no-cache jq uuidgen sqlite
 
 COPY skjema.sql /db/
 RUN sqlite3 database.db < skjema.sql

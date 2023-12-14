@@ -138,8 +138,8 @@ cat <<EOF
 EOF
 
 #echo "$ID"
-echo "$TEKSTSTRENG"
-echo "$ID"
+#echo "$TEKSTSTRENG"
+#echo "$ID"
 
 
 
